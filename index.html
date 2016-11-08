@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Yникальная система раздвижных дверей используемая при изготовлении шкафов (купе) и межкомнатных дверей">
     <link href="https://fonts.googleapis.com/css?family=Exo+2:200,200i,300,300i,400,400i,500,500i" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -108,7 +108,7 @@
                     <h3>Noptiere, comoduri, stilajuri</h3> </div>
             </div>
             <div class="col span-1-of-3 picture-box">
-                <div onclick="open_gallery(mobilier_anticamera)" class="galerie-picture"><img src="resources/img/Production/Mobila%20pentru%20anticamera.jpg">
+                <div onclick="open_gallery('mobilier_anticamera')" class="galerie-picture"><img src="resources/img/Production/Mobila%20pentru%20anticamera.jpg">
                     <div class="galerie-hover"> </div>
                     <div class="galerie-hover-content"> <i class="ion-plus-round"></i> </div>
                 </div>
@@ -143,9 +143,14 @@
             </div>
         </div>
         <div id="myModal" class="modal">
-            <div class="row"> <i class="ion-close close"></i> </div>
-            <div class="modal-content"> 
-            <div class="enlarge-content"></div>
+            <div class="modal-content">
+                <div class="row"> <i class="ion-close close"></i> </div>
+                <div class="enlarge-content">
+                    <div class="ion-close" id="arrow-close"></div>
+                    <div class="ion-chevron-left arrow-left"></div>
+                    <div class="ion-chevron-right arrow-right"></div>
+                    
+                </div>
             </div>
         </div>
     </section>
@@ -212,16 +217,12 @@
                     <li>
                         <div class="content">
                             <h3>Brand-uri</h3>
-                            <h4>În pocesul tehnologic folosim productia celor mai vestite brenduri internationale. </h4>
+                            <h4>În pocesul tehnologic folosim productia celor mai vestite brenduri internationale.</h4>
                             <table class="sub-list">
                                 <tr>
                                     <td><i class="ion-record"></i> </td>
                                     <td>
                                         <p>CLEAF</p>
-                                    </td>
-                                    <td><i class="ion-record"></i> </td>
-                                    <td>
-                                        <p>GIZIR(MDF)</p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -229,19 +230,11 @@
                                     <td>
                                         <p>EGGER</p>
                                     </td>
-                                    <td><i class="ion-record"></i> </td>
-                                    <td>
-                                        <p>NIEMANN(ACRILUX)</p>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td><i class="ion-record"></i></td>
                                     <td>
                                         <p>KRONOSPAN</p>
-                                    </td>
-                                    <td><i class="ion-record"></i></td>
-                                    <td>
-                                        <p>REHAU</p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -249,19 +242,11 @@
                                     <td>
                                         <p>AGT</p>
                                     </td>
-                                    <td><i class="ion-record"></i></td>
-                                    <td>
-                                        <p>BLUM</p>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td><i class="ion-record"></i></td>
                                     <td>
                                         <p>SMEG</p>
-                                    </td>
-                                    <td><i class="ion-record"></i></td>
-                                    <td>
-                                        <p>TEKA</p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -269,19 +254,11 @@
                                     <td>
                                         <p>HETTICH</p>
                                     </td>
-                                    <td><i class="ion-record"></i></td>
-                                    <td>
-                                        <p>SAMET</p>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td><i class="ion-record"></i></td>
                                     <td>
                                         <p>SEVROL</p>
-                                    </td>
-                                    <td><i class="ion-record"></i></td>
-                                    <td>
-                                        <p>KESSEBOHMER</p>
                                     </td>
                                 </tr>
                                 <tr>

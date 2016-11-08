@@ -1,10 +1,4 @@
-@media (max-width: 1200px) {
-    .main-nav {
-        display: inline-block;
-    }
-}
-
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
     h1 {
         font-size: 220%;
     }
@@ -15,8 +9,8 @@
         top: 60%;
     }
     .main-nav {
-        display: none;
-    }
+    display: none;
+}
     nav {
         width: 100%;
         height: auto;
@@ -26,6 +20,13 @@
         left: 0;
         z-index: 999;
         transition: height 0.3s;
+    }
+    nav #logo {
+        height: 80px;
+        width: auto;
+        float: left;
+        margin: 20px 0;
+        transition: all 0.3s;
     }
     .mobile-nav-icon {
         display: inline-block;
@@ -47,9 +48,6 @@
     }
     .smaller .main-nav li {
         margin: 0;
-    }
-    .smaller .mobile-nav-icon i {
-        font-size: 160%;
     }
     .smaller .main-nav li a:link,
     .smaller .main-nav li a:visited {
@@ -108,13 +106,32 @@
     }
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 180%;
+    }
+    h2 {
+        font-size: 140%;
+    }
+    h2:before {
+        width: 30px;
+    }
+    h2:after {
+        width: 30px;
+    }
     h4 {
         font-size: 90%;
         line-height: 160%;
     }
-    .header-text {
-        top: 65%;
+    .btn-show-more:link,
+    .btn-show-more:visited {
+        padding: 10px 30px;
+    }
+    .header-text a {
+        font-size: 80%;
+    }
+    nav #logo {
+        height: 60px;
     }
     .section-galerie h3 {
         font-size: 100%;
@@ -125,11 +142,25 @@
     p {
         font-size: 80%;
     }
-    .section-cum-lucram .sub-list th p {
-        width: 120%;
-        line-height: 160%;
-    }
     h3 {
         font-size: 110%;
+    }
+    .section-cum-lucram h4 {
+        padding: 2px;
+    }
+    .timeline ul li:after {
+        width: 30px;
+        height: 30px;
+    }
+    .timeline ul li div {
+        padding: 10px;
+    }
+    .promotions ul li {
+        margin-bottom: 0;
+    }
+    .promotions ul {
+        background-color: #fff;
+        padding: 5px 10px;
+        list-style: none;
     }
 }
