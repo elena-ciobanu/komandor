@@ -58,7 +58,7 @@ $(document).ready(function () {
                         var imgSrc = dir + "/" + val;
                         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
                          console.log(filename);
-                        container = container + "<figure><img src='" + imgSrc + "'></figure>";
+                        //container = container + "<figure><img src='" + imgSrc + "'></figure>";
                         array_images.push(dir + "/" + val);
                          
                     }
