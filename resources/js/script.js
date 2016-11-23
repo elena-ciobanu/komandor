@@ -44,7 +44,7 @@ $(document).ready(function () {
         modal.style.display = "block";
         menu.style.display = "none";
         document.documentElement.style.overflow = 'hidden';
-        var dir = document.location+"\\resources\\img\\poze_mobilier\\" + param;
+        var dir = "https://raw.githubusercontent.com/elena-ciobanu/komandor/master" + "\\resources\\img\\poze_mobilier\\" + param;
         var fileextension = ".jpg";
         var contor = 0;
         var container = "";
