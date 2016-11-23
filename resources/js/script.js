@@ -56,8 +56,8 @@ $(document).ready(function () {
                 $(data).find("a").attr("href", function (i, val) {
                      if (val.match(/\.(jpe?g|png|gif|bmp|JPE?G|PNG|GIF|BMP)$/)) {
                         var imgSrc = dir + "/" + val;
-                        imgSrc.replace("http://","https://");
-                        console.log(imgSrc);
+                        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+                         console.log(filename);
                         container = container + "<figure><img src='" + imgSrc + "'></figure>";
                         array_images.push(dir + "/" + val);
                          
