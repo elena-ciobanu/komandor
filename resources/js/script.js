@@ -31,7 +31,7 @@ function initMap() {
         google.maps.event.trigger(map, "resize");
         map.setCenter(center);
     });
-}
+};
 $(document).ready(function () {
     /*--------------------Gallery-pop-up--------------------------*/
     // When the user clicks the button, open the modal
@@ -54,27 +54,17 @@ $(document).ready(function () {
             , success: function (data) {
                 var total = $(data).find("a").length;
                 $(data).find("a").attr("href", function (i, val) {
-                    if (val.match(/\.(jpe?g|png|gif|bmp|JPE?G|JPG|PNG|GIF|BMP)$/)) {
-                        if (contor === 0) {
-                            container = container + "<div class='row'><div class='col span-1-of-3 picture-box'><div class='galerie-picture'><img src='" + dir + "/" + val + "'></div></div>";
-                            contor++;
-                        }
-                        else if (contor === 2) {
-                            container = container + "<div class='col span-1-of-3 picture-box'><div class='galerie-picture'><img src='" + dir + "/" + val + "'></div></div></div>";
-                            contor = 0;
-                        }
-                        else {
-                            container = container + "<div class='col span-1-of-3 picture-box'><div class='galerie-picture'><img src='" + dir + "/" + val + "'></div></div>";
-                            contor++;
-                        }
+                    if (val.match(/\.(jpe?g|png|gif|bmp|JPE?G|PNG|GIF|BMP)$/)) {
+                        container = container + "<figure><img src='" + dir + "/" + val + "'></figure>";
                         array_images.push(dir + "/" + val);
                     }
                 });
-                $(".modal-content").append(container);
+                $("#columns").append(container);
+                setTimeout('$("#columns").show("slow")', 1000);
             }
         });
     }
-    $(document).on("click", '.modal-content .galerie-picture img', function (event) {
+    $(document).on("click", '#columns img', function (event) {
         console.log(array_images);
         var currentImage = $(this);
         index = array_images.indexOf(currentImage.attr('src'));
@@ -94,7 +84,8 @@ $(document).ready(function () {
         array_images = [];
         modal.style.display = "none";
         document.documentElement.style.overflow = 'auto';
-        $(".modal-content .row").not('div:first').remove();
+        $("#columns").empty();
+        $("#columns").hide();
     }
     $('.arrow-left').on("click", function () {
         arrowClick(-1);
@@ -184,6 +175,32 @@ $(document).ready(function () {
     }
     window.addEventListener("load", callbackFunc);
     window.addEventListener("scroll", callbackFunc);
+    /*----------------------SEND MAIL MESSAGE-----------------------------*/
+    $('#contact-form').submit(function () {
+        //on submit, the dataString is created with the values from html form
+        var name = $("input#name").val();
+        var email = $("input#email").val();
+        var message = $("textarea#message").val();
+        var dataString = 'name=' + name + '&email=' + email + '&message=' + message;
+        $.ajax({
+            //ajax processes the value from dataString with php script and method POST
+            type: "POST"
+            , url: "resources/form-to-mail.php"
+            , data: dataString
+            , success: function () {
+                $("#contact-form").slideToggle("slow");
+                setTimeout('$(".message-sent").show("slow")', 1000);
+            }
+        });
+        //for not reloading the page
+        return false;
+    });
+    /*
+
+    function sendContactForm() {
+        $("#contact-form").slideToggle("slow");
+        setTimeout('$(".text-trimis").show("slow")', 1000);
+    }*/
 });
 /*--------------------sticky menu---------------------------------------*/
 function init() {
@@ -202,3 +219,12 @@ function init() {
     });
 }
 window.onload = init();
+/*----------------------MAIL VALIDATION MESSAGE-----------------------------*/
+function check(input) {
+    if (input.validity.typeMismatch) {
+        input.setCustomValidity("Trebuie să introduci o adresă de e-mail validă");
+    }
+    else {
+        input.setCustomValidity("");
+    }
+}
