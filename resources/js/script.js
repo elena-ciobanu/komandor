@@ -59,6 +59,7 @@ $(document).ready(function () {
                         imgSrc.replace("http://","https://");
                         container = container + "<figure><img src='" + imgSrc + "'></figure>";
                         array_images.push(dir + "/" + val);
+                         console.log(imgSrc);
                     }
                 });
                 $("#columns").append(container);
