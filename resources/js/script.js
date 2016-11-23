@@ -54,8 +54,10 @@ $(document).ready(function () {
             , success: function (data) {
                 var total = $(data).find("a").length;
                 $(data).find("a").attr("href", function (i, val) {
-                    if (val.match(/\.(jpe?g|png|gif|bmp|JPE?G|PNG|GIF|BMP)$/)) {
-                        container = container + "<figure><img src='" + dir + "/" + val + "'></figure>";
+                     if (val.match(/\.(jpe?g|png|gif|bmp|JPE?G|PNG|GIF|BMP)$/)) {
+                        var imgSrc = dir + "/" + val;
+                        imgSrc.replace("http://","https://");
+                        container = container + "<figure><img src='" + imgSrc + "'></figure>";
                         array_images.push(dir + "/" + val);
                     }
                 });
