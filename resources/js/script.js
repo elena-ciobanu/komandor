@@ -54,7 +54,7 @@ $(document).ready(function () {
             , success: function (data) {
                 var total = $(data).find("a").length;
                 $(data).find("a").attr("href", function (i, val) {
-                    if (val.match(/\.(jpe?g|png|gif|bmp|JPE?G|PNG|GIF|BMP)$/)) {
+                    if (val.match(/\.(jpe?g|png|gif|bmp|JPE?G|JPG|PNG|GIF|BMP)$/)) {
                         if (contor === 0) {
                             container = container + "<div class='row'><div class='col span-1-of-3 picture-box'><div class='galerie-picture'><img src='" + dir + "/" + val + "'></div></div>";
                             contor++;
